@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import styles from './page.module.css';
 import ContributionCalendar from '../components/ContributionCalendar';
 import SiteHeader from '../components/SiteHeader';
@@ -30,15 +31,12 @@ async function getContributions() {
   }
 }
 
-export default async function Home() {
+async function ProfileContent() {
   const [profile, contributions] = await Promise.all([getGithubProfile(), getContributions()]);
   const name = profile?.name || githubUsername;
 
   return (
-    <main className={styles.site}>
-      <SiteHeader activePath="/" name={name} actionHref={`https://github.com/${githubUsername}`} actionLabel="Abrir perfil ↗" />
-
-      <div className={styles.content} id="inicio">
+    <div className={styles.content} id="inicio">
         <section className={styles.profile} aria-labelledby="profile-title">
           <img
             className={styles.avatar}
@@ -75,7 +73,17 @@ export default async function Home() {
             <p className={styles.graphFallback}>Não foi possível carregar as contribuições agora. <a href={`https://github.com/${githubUsername}?tab=overview`} target="_blank" rel="noreferrer">Ver atividade no GitHub ↗</a></p>
           )}
         </section>
-      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className={styles.site}>
+      <SiteHeader activePath="/" actionHref={`https://github.com/${githubUsername}`} actionLabel="Abrir perfil ↗" />
+      <Suspense fallback={<p className={styles.loading}>Carregando perfil e atividade do GitHub…</p>}>
+        <ProfileContent />
+      </Suspense>
     </main>
   );
 }

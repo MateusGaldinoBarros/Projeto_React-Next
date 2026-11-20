@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import styles from './page.module.css';
 import SiteHeader from '../../components/SiteHeader';
 
@@ -37,21 +38,11 @@ export const metadata = {
   description: 'Projeto Miaumigo no GitHub.',
 };
 
-export default async function AcademicExperience() {
+async function MiaumigoCard() {
   const project = await getProject();
 
   return (
-    <main className={styles.site}>
-      <SiteHeader activePath="/experiencia-academica" actionHref={repositoryUrl} actionLabel="Miaumigo no GitHub ↗" />
-
-      <div className={styles.content}>
-        <section className={styles.intro} aria-labelledby="experience-title">
-          <span className={styles.eyebrow}>FORMAÇÃO E PROJETOS</span>
-          <h1 id="experience-title">Experiência acadêmica</h1>
-          <p>Projeto acadêmico apresentado no meu GitHub.</p>
-        </section>
-
-        <article className={styles.projectCard}>
+    <article className={styles.projectCard}>
           <div className={styles.projectHeader}>
             <span className={styles.projectMark} aria-hidden="true">M</span>
             <div>
@@ -73,7 +64,23 @@ export default async function AcademicExperience() {
             {project?.updatedAt && <span>Atualizado em {new Date(project.updatedAt).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</span>}
           </div>
           <a className={styles.readMore} href={repositoryUrl} target="_blank" rel="noreferrer">Ver código e detalhes no GitHub <span>↗</span></a>
-        </article>
+    </article>
+  );
+}
+
+export default function AcademicExperience() {
+  return (
+    <main className={styles.site}>
+      <SiteHeader activePath="/experiencia-academica" actionHref={repositoryUrl} actionLabel="Miaumigo no GitHub ↗" />
+      <div className={styles.content}>
+        <section className={styles.intro} aria-labelledby="experience-title">
+          <span className={styles.eyebrow}>FORMAÇÃO E PROJETOS</span>
+          <h1 id="experience-title">Experiência acadêmica</h1>
+          <p>Projeto acadêmico apresentado no meu GitHub.</p>
+        </section>
+        <Suspense fallback={<p className={styles.loading}>Carregando dados do projeto…</p>}>
+          <MiaumigoCard />
+        </Suspense>
       </div>
     </main>
   );

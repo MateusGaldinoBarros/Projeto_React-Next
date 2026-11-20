@@ -13,6 +13,7 @@
 
 .handle:hover { color: var(--accent); }
 .content { width: min(100% - 40px, 960px); margin: 58px auto; }
+.loading { width: min(100% - 40px, 960px); min-height: 210px; margin: 58px auto; padding: 24px; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
 .profile { display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 26px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
 .avatar { width: 112px; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--border); border-radius: 50%; }
 .profileDetails { min-width: 0; }
@@ -38,6 +39,7 @@
 
 @media (max-width: 760px) {
   .content { margin: 32px auto; }
+  .loading { margin: 32px auto; }
   .profile { grid-template-columns: 80px minmax(0, 1fr); gap: 16px; padding: 19px; }
   .avatar { width: 80px; }
   .stats { grid-column: 1 / -1; }

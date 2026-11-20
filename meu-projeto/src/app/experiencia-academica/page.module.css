@@ -17,6 +17,7 @@
 .intro h1 { margin: 9px 0 10px; font-size: clamp(30px, 5vw, 42px); letter-spacing: -.04em; }
 .intro p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
 .projectCard { max-width: 720px; padding: 25px; background: var(--panel); border: 1px solid var(--border); border-radius: 9px; }
+.loading { max-width: 720px; min-height: 170px; margin: 0; padding: 25px; color: var(--muted); background: var(--panel); border: 1px solid var(--border); border-radius: 9px; font-size: 13px; }
 .projectHeader { display: flex; align-items: center; gap: 15px; }
 .projectMark { display: grid; width: 48px; height: 48px; flex-shrink: 0; place-items: center; color: var(--accent); background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.15); border-radius: 9px; font-size: 21px; font-weight: 700; }
 .projectHeader h2 { margin: 4px 0 0; font-size: 23px; }
