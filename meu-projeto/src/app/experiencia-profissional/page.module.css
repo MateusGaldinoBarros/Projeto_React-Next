@@ -1,0 +1,43 @@
+.site {
+  --background: #0d1117;
+  --panel: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #38bdf8;
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content { width: min(100% - 40px, 960px); margin: 58px auto; }
+.intro { max-width: 700px; margin-bottom: 30px; }
+.eyebrow { color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: .08em; }
+.intro h1 { margin: 9px 0 10px; font-size: clamp(30px, 5vw, 42px); letter-spacing: -.04em; }
+.intro p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+.loading { max-width: 720px; min-height: 170px; margin: 0; padding: 25px; color: var(--muted); background: var(--panel); border: 1px solid var(--border); border-radius: 9px; font-size: 13px; }
+.projectCard { max-width: 720px; padding: 25px; background: var(--panel); border: 1px solid var(--border); border-radius: 9px; }
+.projectHeader { display: flex; align-items: center; gap: 15px; }
+.projectMark { display: grid; width: 48px; height: 48px; flex-shrink: 0; place-items: center; color: var(--accent); background: rgba(56,189,248,.1); border: 1px solid rgba(56,189,248,.15); border-radius: 9px; font-size: 14px; font-weight: 700; }
+.projectHeader h2 { margin: 4px 0 2px; font-size: 23px; }
+.repositoryName { color: var(--muted); font-size: 12px; }
+.projectLink { display: grid; width: 36px; height: 36px; flex-shrink: 0; place-items: center; margin-left: auto; color: var(--accent); border: 1px solid var(--border); border-radius: 6px; }
+.description { margin: 22px 0; color: var(--text); font-size: 14px; line-height: 1.7; }
+.technologies { margin-bottom: 20px; }
+.technologies h3 { margin: 0 0 11px; font-size: 14px; }
+.technologies ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.technologies li { padding: 6px 9px; color: var(--text); background: rgba(56,189,248,.07); border: 1px solid rgba(56,189,248,.15); border-radius: 5px; font-size: 12px; }
+.projectDetails { display: flex; flex-wrap: wrap; gap: 16px; padding: 15px 0; color: var(--muted); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font-size: 12px; }
+.readMore { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: var(--accent); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .content { margin: 36px auto; }
+}
+
+@media (max-width: 480px) {
+  .content { width: calc(100% - 28px); margin: 30px auto; }
+  .intro p { font-size: 13px; }
+  .projectCard { padding: 18px; }
+  .projectDetails { gap: 11px; font-size: 11px; }
+}

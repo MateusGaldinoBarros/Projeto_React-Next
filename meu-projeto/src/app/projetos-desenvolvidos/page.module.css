@@ -1,0 +1,41 @@
+.site {
+  --background: #0d1117;
+  --panel: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #38bdf8;
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content { width: min(100% - 40px, 1000px); margin: 58px auto; }
+.intro { max-width: 700px; margin-bottom: 30px; }
+.eyebrow { color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: .08em; }
+.intro h1 { margin: 9px 0 10px; font-size: clamp(30px, 5vw, 42px); letter-spacing: -.04em; }
+.intro p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.65; }
+.repositoryGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.repositoryCard { min-width: 0; padding: 20px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; transition: border-color .2s, transform .2s; }
+.repositoryCard:hover { transform: translateY(-2px); border-color: rgba(56,189,248,.45); }
+.repositoryHeading { display: flex; align-items: center; gap: 10px; }
+.repositoryIcon { display: grid; width: 30px; height: 30px; flex-shrink: 0; place-items: center; color: var(--accent); background: rgba(56,189,248,.1); border-radius: 6px; }
+.repositoryHeading a { overflow: hidden; color: var(--accent); font-size: 15px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.repositoryCard > p { min-height: 43px; margin: 13px 0 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.repositoryMeta { display: flex; flex-wrap: wrap; gap: 14px; color: var(--muted); font-size: 11px; }
+.repositoryMeta span { display: inline-flex; align-items: center; gap: 6px; }
+.languageDot { width: 9px; height: 9px; background: var(--accent); border-radius: 50%; }
+.message { margin: 0; padding: 20px; color: var(--muted); background: var(--panel); border: 1px solid var(--border); border-radius: 8px; font-size: 13px; }
+.message a { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .content { margin: 36px auto; }
+}
+
+@media (max-width: 560px) {
+  .content { width: calc(100% - 28px); margin: 30px auto; }
+  .intro p { font-size: 13px; }
+  .repositoryGrid { grid-template-columns: 1fr; gap: 10px; }
+  .repositoryCard { padding: 17px; }
+}

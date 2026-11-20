@@ -1,5 +1,6 @@
 import styles from './page.module.css';
 import ContributionCalendar from '../components/ContributionCalendar';
+import SiteHeader from '../components/SiteHeader';
 
 const githubUsername = 'MateusGaldinoBarros';
 
@@ -35,12 +36,7 @@ export default async function Home() {
 
   return (
     <main className={styles.site}>
-      <header className={styles.header}>
-        <a className={styles.brand} href="#inicio">{name}<span>GitHub</span></a>
-        <a className={styles.profileLink} href={`https://github.com/${githubUsername}`} target="_blank" rel="noreferrer">
-          Abrir perfil ↗
-        </a>
-      </header>
+      <SiteHeader activePath="/" name={name} actionHref={`https://github.com/${githubUsername}`} actionLabel="Abrir perfil ↗" />
 
       <div className={styles.content} id="inicio">
         <section className={styles.profile} aria-labelledby="profile-title">

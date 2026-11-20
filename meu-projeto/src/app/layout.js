@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Aetheon Labs — Engenharia Criativa & Arquitetura Digital',
-  description: 'Portfólio de engenharia criativa, arquitetura digital e experiências espaciais.',
+  title: 'Mateus Galdino | GitHub',
+  description: 'Perfil de Mateus Galdino, tecnologias e atividade no GitHub.',
 };
 
 export default function RootLayout({ children }) {
