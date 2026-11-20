@@ -1,0 +1,7 @@
+.scrollArea { margin-top: 24px; overflow-x: auto; }
+.calendar { display: block; width: 100%; min-width: 760px; height: 112px; overflow: visible; }
+.weekdayLabels text, .monthLabels text { fill: #8b949e; font-family: Arial, Helvetica, sans-serif; font-size: 9px; }
+
+@media (max-width: 480px) {
+  .scrollArea { margin-top: 20px; }
+}
