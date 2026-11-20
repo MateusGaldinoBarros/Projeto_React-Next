@@ -1,150 +1,74 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+.site {
+  --background: #0d1117;
+  --panel: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #38bdf8;
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.main {
+.header {
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
+  height: 68px;
+  align-items: center;
   justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  padding: 0 max(24px, calc((100vw - 1040px) / 2));
+  border-bottom: 1px solid var(--border);
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+.brand { display: flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 600; }
+.brand span { padding: 3px 8px; color: var(--muted); border: 1px solid var(--border); border-radius: 20px; font-size: 11px; font-weight: 400; }
+.profileLink { color: var(--text); font-size: 13px; }
+.profileLink:hover, .handle:hover { color: var(--accent); }
+.content { width: min(100% - 40px, 960px); margin: 58px auto; }
+.profile { display: grid; grid-template-columns: 112px minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 26px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+.avatar { width: 112px; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--border); border-radius: 50%; }
+.profileDetails { min-width: 0; }
+.eyebrow { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .08em; }
+.profileDetails h1 { margin: 7px 0 2px; font-size: 26px; letter-spacing: -.03em; }
+.handle { color: var(--muted); font-size: 15px; }
+.profileDetails p { margin: 12px 0 0; color: var(--text); font-size: 14px; line-height: 1.55; }
+.location { display: inline-block; margin-top: 11px; color: var(--muted); font-size: 12px; }
+.stats { display: flex; gap: 9px; margin: 0; }
+.stats div { min-width: 91px; padding: 11px; border: 1px solid var(--border); border-radius: 7px; }
+.stats dt { color: var(--muted); font-size: 10px; white-space: nowrap; }
+.stats dd { margin: 5px 0 0; font-size: 20px; font-weight: 600; }
+.activity { margin-top: 18px; padding: 23px 25px 17px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; }
+.activityHeading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.activityHeading h2 { margin: 5px 0 0; font-size: 20px; }
+.period { color: var(--muted); font-size: 12px; }
+.graphFallback { margin: 25px 0 8px; color: var(--muted); font-size: 13px; }
+.graphFallback a { color: var(--accent); }
+.legend { display: flex; align-items: center; justify-content: flex-end; gap: 5px; margin-top: 13px; color: var(--muted); font-size: 10px; }
+.legend span:first-child { margin-right: 3px; }.legend span:last-child { margin-left: 3px; }
+.legend i { width: 10px; height: 10px; background: #161b22; border: 1px solid rgba(255,255,255,.04); border-radius: 2px; }
+.legend i:nth-of-type(2) { background: #0e4429; }.legend i:nth-of-type(3) { background: #006d32; }.legend i:nth-of-type(4) { background: #26a641; }.legend i:nth-of-type(5) { background: #39d353; }
+
+@media (max-width: 760px) {
+  .header { padding-inline: 20px; }
+  .content { margin: 32px auto; }
+  .profile { grid-template-columns: 80px minmax(0, 1fr); gap: 16px; padding: 19px; }
+  .avatar { width: 80px; }
+  .stats { grid-column: 1 / -1; }
+  .stats div { flex: 1; }
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--button-secondary-border);
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
-}
-
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
+@media (max-width: 480px) {
+  .content { width: calc(100% - 28px); }
+  .header { height: 60px; padding-inline: 14px; }
+  .brand { font-size: 13px; }
+  .profile { gap: 13px; padding: 15px; }
+  .avatar { width: 64px; }
+  .profileDetails h1 { font-size: 20px; }
+  .handle { font-size: 13px; }
+  .profileDetails p { font-size: 12px; }
+  .stats { gap: 6px; }
+  .stats div { min-width: 0; padding: 8px; }
+  .stats dt { font-size: 9px; }
+  .stats dd { font-size: 18px; }
+  .activity { padding: 18px 14px 14px; }
 }
